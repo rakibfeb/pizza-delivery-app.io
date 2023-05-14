@@ -14,24 +14,8 @@ app.use(expressLayout)
 app.set('views', path.join(__dirname,'/resources/views'))
 app.set('view engine', 'ejs')
 
-// home page server setup
-app.get('/',(req,res) => {
-    res.render('home')
-})
-
-// cart page server setup
-app.get('/cart',(req,res)=>{
-    res.render('customers/cart')
-})
-// login page server setup
-app.get('/login',(req,res)=>{
-    res.render('auth/login')
-})
-// register page server setup
-app.get('/register',(req,res)=>{
-    res.render('auth/register')
-})
-
+// requiring from web.js as a function and calling function
+require('./routes/web')(app)
 
 // server
 app.listen(PORT,()=>{
